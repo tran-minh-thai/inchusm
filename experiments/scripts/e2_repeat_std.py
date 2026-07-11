@@ -1,6 +1,6 @@
 """Repeated E2 timing runs (Elliptic-49) K times -> speedup mean +/- std.
 
-Purpose: add a standard deviation to the speedup claim (review Round 5, criterion 5).
+Purpose: add a standard deviation to the speedup claim.
 MUST run on the official measurement machine (i7-10750H) to stay consistent with the
 other timing numbers in the paper. The COUNT values (49/49, #HUS) are deterministic and
 need no repetition; only TIMING needs repeating.
@@ -11,7 +11,7 @@ Run (on the i7, TURN OFF Google Drive sync while measuring):
     "%USERPROFILE%\\.venvs\\inchusm\\Scripts\\python.exe" experiments\\scripts\\e2_repeat_std.py --runs 5
 
 Each run ~10 min (static re-run of 49 snapshots), so --runs 5 takes ~50 min; --runs 3 (~30 min) is the minimum to get a std.
-Send the "REPEATED-RUN RESULTS" block at the end back to the editor to update the paper.
+The "REPEATED-RUN RESULTS" block at the end reports the speedup mean ± std.
 """
 from __future__ import annotations
 
@@ -66,7 +66,7 @@ def main() -> None:
     print(f"inc total (s)   : {fmt(incs)}")
     print(f"static total (s): {fmt(stats)}")
     print(f"speedup (x)     : {fmt(sps)}")
-    print("Paste 'speedup mean ± std' into the paper (E2 + abstract) -> criterion 5 met.")
+    print("Paste 'speedup mean ± std' into the paper (E2 + abstract).")
 
 
 if __name__ == "__main__":

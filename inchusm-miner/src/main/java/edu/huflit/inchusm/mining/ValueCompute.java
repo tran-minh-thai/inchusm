@@ -26,7 +26,7 @@ import java.util.Set;
  * a snapshot, the union CMNI columns are the disjoint sum of per-snapshot column
  * counts and the union ESV maxima are the concatenation of per-snapshot maxima.
  * So {@code combine(segment(G1), ..., segment(Gt))} equals {@code evaluate(union)}
- * exactly — the algebraic core of IncHUSM's correctness (Lemma L1, doc 01/H).
+ * exactly — the algebraic core of IncHUSM's correctness (Lemma L1).
  */
 public final class ValueCompute {
 

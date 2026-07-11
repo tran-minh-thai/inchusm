@@ -1,6 +1,6 @@
 """Load IBM AMLworld (Altman 2023) — transactions + ground-truth laundering attempts.
 
-Format (Kaggle 2025-07 release, see 04/§2.5):
+Format (Kaggle 2025-07 release):
 - {HI,LI}-{Small,..}_Trans.csv: Timestamp, From Bank, Account, To Bank, Account,
   Amount Received, Receiving Currency, Amount Paid, Payment Currency,
   Payment Format, Is Laundering.
@@ -19,7 +19,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-# AMLworld's 8 typologies (04/§3.1); names normalized per Patterns.txt
+# AMLworld's 8 typologies; names normalized per Patterns.txt
 KNOWN_TYPES = (
     "FAN-OUT", "FAN-IN", "GATHER-SCATTER", "SCATTER-GATHER",
     "CYCLE", "RANDOM", "BIPARTITE", "STACK",

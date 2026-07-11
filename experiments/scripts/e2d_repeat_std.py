@@ -12,7 +12,7 @@ Cost: each run ~20-25 min (static re-run ~20 min). --runs 3 ~1.2 h; --runs 5 ~2 
 Run:
     "%USERPROFILE%\\.venvs\\inchusm\\Scripts\\python.exe" experiments\\scripts\\e2d_repeat_std.py --runs 3
 
-Send the "REPEATED E2d RESULTS" block at the end back to the editor.
+The "REPEATED E2d RESULTS" block at the end reports the E2d speedup mean ± std.
 """
 from __future__ import annotations
 
@@ -72,7 +72,7 @@ def main() -> None:
     print(f"speedup (x)     : {fmt(sps)}")
     inv_ok = len(set(oks)) == 1 and len(set(highs)) == 1
     print(f"invariant counts: match {sorted(set(oks))}, high {sorted(set(highs))}"
-          + ("  ✅ same every run" if inv_ok else "  ❌ DIFFER — investigate!"))
+          + ("  same every run" if inv_ok else "  FAIL DIFFER — investigate!"))
     print("Paste 'speedup mean ± std' into the Paper 2 E2d section. The paper keeps 26.0x as the representative run.")
 
 

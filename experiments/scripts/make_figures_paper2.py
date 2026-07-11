@@ -6,7 +6,7 @@ Two panels (compact for a 6-page IEEE conference):
   (b) Memory/fringe growth: number of pattern-states held (tracked) + incremental work
       per snapshot (seg_last) by t.
 
-English labels (so translating the paper needs no figure edits). Export vector PDF into bai_bao2/.
+English labels (so translating the paper needs no figure edits). Export vector PDF into results/.
 Run:  python scripts/make_figures_paper2.py [--csv results/e2_stream_utility_ceu.csv]
 """
 

@@ -55,8 +55,8 @@ Total for the required part: Elliptic ~1.5 GB + AMLworld Small ~9 GB + Citeseer 
    python -m venv %USERPROFILE%\.venvs\inchusm
    "%USERPROFILE%\.venvs\inchusm\Scripts\python.exe" -m pip install -r requirements.txt
    ```
-   (`requirements.txt` at the root of `inchusm/`: numpy/pandas/scikit-learn/scipy/
-   matplotlib/networkx. Missing `matplotlib` → the figure step fails.)
+   (`requirements.txt` at the root of `inchusm/`: numpy/pandas/matplotlib.
+   Missing `matplotlib` → the figure step fails.)
 3. **Maven** — required after a fresh clone, because the jar is not tracked in git. Build it and
    run the 12 tests with:
    ```bat
@@ -94,8 +94,9 @@ what already ran). Summary log + machine configuration: `experiments\results\run
 | E2c L (n=3000, θ=1600) | **30/30 OK**, **70** HUS |
 | E2d AMLworld (10 days, θ=2000) | **10/10 match=OK** (a 3-day probe once gave 3/3 OK, 15 HUS at t=3) |
 
-TIMING/SPEEDUP numbers are machine-dependent — on the reference i5-11500B/8GB: E2 Elliptic
-speedup ~44x, synthetic ~2.9x/3.1x; expect the same order of magnitude on other machines.
+TIMING/SPEEDUP numbers are machine-dependent. On the reference i7-10750H the E2 Elliptic
+speedup is ~38x and the synthetic streams ~2.9x/3.1x; expect the same order of magnitude on
+other machines.
 
 ## 5. After the run
 
@@ -104,5 +105,4 @@ speedup ~44x, synthetic ~2.9x/3.1x; expect the same order of magnitude on other 
 2. Update the manuscript: (a) the hardware statement in the Setup section for the new machine;
    (b) all timing/speedup numbers from the new CSVs; (c) the E2d AMLworld results paragraph.
    Regenerate the figures with `python experiments\scripts\make_figures_paper2.py` (it writes the
-   figure PDFs to the manuscript figure folder — if that folder is absent on the measurement
-   machine, copy the CSVs to your authoring machine and run the figure command there).
+   figure PDFs to `results/`).

@@ -15,7 +15,7 @@ import java.util.Set;
  * 1-edge patterns are children of the root, which is a HUS by convention, so
  * they can only be MaxBHUS.
  *
- * Note (analysis doc 01/E): because utility is not monotone on the enumeration
+ * Note: because utility is not monotone on the enumeration
  * tree, HUS may form BROKEN paths; lossless recovery (Alg. 6) is only guaranteed
  * along all-HUS segments, which is why extraction reports both boundary sets.
  */

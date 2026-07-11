@@ -119,7 +119,7 @@ def main() -> None:
     print(f"inc total          : {df['inc_ms'].sum()/1000:.1f} s")
     if not args.no_compare:
         ok = int((df["match"] == "OK").sum())
-        print(f"correctness (E1)   : {ok}/{n} match=OK" + (" ✅" if ok == n else " ❌"))
+        print(f"correctness (E1)   : {ok}/{n} match=OK" + ("" if ok == n else "  MISMATCH"))
         st = df["static_ms"].sum() / 1000
         print(f"static re-run total: {st:.1f} s")
         print(f"SPEEDUP            : {st*1000/max(1, df['inc_ms'].sum()):.1f}×")

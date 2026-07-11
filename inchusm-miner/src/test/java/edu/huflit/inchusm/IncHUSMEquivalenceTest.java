@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * The core guarantee of the incremental miner (invariants INV1–INV3, doc 05/II).
+ * The core guarantee of the incremental miner (invariants INV1–INV3).
  * Stream disjoint snapshots one at a time; after EACH snapshot the incremental
  * store must equal a definition-level static computation on the accumulated
  * union — for both the utility and the support measure.

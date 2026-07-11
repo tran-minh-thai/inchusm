@@ -18,7 +18,7 @@ definitions and algorithms directly:
 | HUSM Algorithms 1–3 | `mining/HUSM` |
 | Boundary HUS concise representation (Def. 15, Alg. 5) | `mining/BHUS` |
 | **IncHUSM** — incremental mining over disjoint snapshots (Lemmas L1–L3) | `mining/IncHUSM`, `mining/PatternState`, `mining/Segment` |
-| Measure flag utility / support (project decision G3.1) | `mining/Measure` |
+| Measure flag utility / support (build-time flag) | `mining/Measure` |
 
 ## Build & run
 

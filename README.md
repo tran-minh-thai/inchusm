@@ -40,13 +40,29 @@ The Python scripts invoke this jar through `experiments/src/inchusm/miner_bridge
 
 ```bash
 python -m venv ~/.venvs/inchusm && pip install -r requirements.txt
-# from experiments/ (datasets in place — see docs/reproduce/paper2.md):
+```
+
+One command, cross-platform (E2, the bound and support ablations, E2b, E2c, figures;
+skips the multi-hour E2d):
+
+```bash
+python experiments/scripts/run_all_paper2.py --quick
+```
+
+Or the individual steps (datasets in place; see docs/reproduce/paper2.md):
+
+```bash
 python scripts/e2_inchusm_stream.py       # Elliptic-49: 49/49 exact match vs static re-run
 python scripts/e2b_citeseer_trend.py      # static-baseline faithfulness check
 python scripts/e2c_synthetic_stream.py --tag S   # controlled synthetic stream
 python scripts/e2d_amlworld_stream.py     # AMLworld daily stream
 python scripts/check_results.py           # verify the deterministic values (any machine)
 ```
+
+`check_results.py` grades 8 result CSVs (main E2, the EU/IVU and support ablations, E2c
+S/L, E2d, Citeseer). Run the full command list in
+[experiments/README.md](experiments/README.md) (including the ablations, which the short
+list above omits) to reach 8/8.
 
 Full workflow, hardware notes, and reference numbers:
 [docs/reproduce/paper2.md](docs/reproduce/paper2.md).

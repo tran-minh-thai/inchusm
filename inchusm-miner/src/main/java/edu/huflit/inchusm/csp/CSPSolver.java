@@ -20,7 +20,7 @@ import java.util.Set;
  * each found solution validates one image in EVERY column at once, so the number
  * of backtracking searches is far below (columns x domain sizes). Unlike GraMi we
  * cannot early-stop at a support threshold: HUSM needs the exact CMNI value
- * because it appears in the utility itself (see analysis doc 01/B).
+ * because it appears in the utility itself.
  */
 public final class CSPSolver {
 

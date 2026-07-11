@@ -42,7 +42,7 @@ if errorlevel 1 goto :fail
 :done
 echo.
 echo ============================================================
-echo  DONE. Send the "REPEATED-RUN RESULTS ..." blocks above to the editor.
+echo  DONE. The "REPEATED-RUN RESULTS ..." blocks above report the mean +- std.
 echo ============================================================
 if not "%NO_PAUSE%"=="1" pause
 exit /b 0

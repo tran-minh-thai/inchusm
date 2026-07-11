@@ -1,6 +1,3 @@
-numpy
-pandas
-scikit-learn        # imported as sklearn — label buckets, Citeseer utilities
-scipy
+numpy               # numeric arrays, label discretization
+pandas              # transaction / snapshot loading
 matplotlib          # figures
-networkx            # graph utilities for the synthetic / Citeseer streams

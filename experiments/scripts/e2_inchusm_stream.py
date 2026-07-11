@@ -24,7 +24,7 @@ LOCKED protocol (strict-inductive):
 Run:
   python scripts/e2_inchusm_stream.py                         # utility, ceu, 49 snap, compare
   python scripts/e2_inchusm_stream.py --max-steps 4           # quick pipeline test
-  python scripts/e2_inchusm_stream.py --measure support       # ablation flag G3.1
+  python scripts/e2_inchusm_stream.py --measure support --min-value 200  # support ablation (72 patterns)
   python scripts/e2_inchusm_stream.py --bound eu --no-compare # ablation bound, drop static
 Results: results/e2_stream_{measure}_{bound}.csv + prints a summary table.
 """
@@ -129,7 +129,7 @@ def main() -> None:
     if not args.no_compare:
         n_ok = int((df["match"] == "OK").sum())
         print(f"correctness (INV2) : {n_ok}/{n} snapshot match=OK"
-              + ("  ✅" if n_ok == n else "  ❌ MISMATCH FOUND"))
+              + ("" if n_ok == n else "  MISMATCH FOUND"))
         static_tot = int(df["static_ms"].sum())
         inc_tot = max(1, int(df["inc_ms"].sum()))
         print(f"static re-run total: {static_tot} ms")

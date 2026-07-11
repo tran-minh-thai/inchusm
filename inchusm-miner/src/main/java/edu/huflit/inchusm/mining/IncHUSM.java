@@ -16,7 +16,7 @@ import java.util.TreeSet;
 
 /**
  * IncHUSM — incremental high-utility subgraph mining over a stream of pairwise
- * disjoint, add-only snapshots (Elliptic's 49 time steps; doc 05 Part II).
+ * disjoint, add-only snapshots (Elliptic's 49 time steps).
  *
  * Each {@link #update} folds one new snapshot into a persistent pattern store
  * without re-mining earlier snapshots. Correctness rests on three invariants,
@@ -32,8 +32,8 @@ import java.util.TreeSet;
  * Guided DFS each update: descend the union candidate tree (bound >= threshold)
  * but touch only the arriving snapshot — a pattern absent from G_t whose subtree
  * was already expanded is frozen (Lemma L3) and skipped. New patterns are
- * back-filled over their parent's occurrence snapshots only (projection, doc
- * 02/E.3.3), never the whole history.
+ * back-filled over their parent's occurrence snapshots only (projection),
+ * never the whole history.
  */
 public final class IncHUSM {
 

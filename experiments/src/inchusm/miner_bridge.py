@@ -1,6 +1,6 @@
 """Python ↔ Java miner bridge (inchusm-miner/, Maven layout).
 
-Language split (05/Part IV, updated 2026-07-02): the miner is written in JAVA
+Language split: the miner is written in JAVA
 (faithful to the papers — HUSM/DyFSM are both Java; fair runtime comparison with SPMF);
 Python handles data/baseline/evaluation. The two sides communicate via FILE:
   Python exports snapshot -> .lg + utility table .tsv -> calls the JAR -> reads HUS .jsonl.
@@ -25,7 +25,7 @@ def export_lg(node_labels: pd.Series, edges: pd.DataFrame, path: Path) -> dict:
     """Write the labeled graph to .lg (GraMi/SPMF format).
 
     node_labels: Series index = original node id, value = int label (discretized
-                 by the bucket table fit on the train window — Q1 of 05).
+                 by the bucket table fit on the train window).
     edges: DataFrame with columns [src, dst] (+ optional 'elabel').
     Returns mapping original node id -> id 0..n-1 (to translate results back).
     """
@@ -87,7 +87,7 @@ def run_inchusm_stream(
     snapshot_dir: Path,
     util_tsv: Path,
     min_value: float,
-    measure: str = "utility",      # 'utility' | 'support' — flag locked in from the first version (G3.1)
+    measure: str = "utility",      # 'utility' | 'support'; build-time ablation flag
     mer: int = 1,
     bound: str = "ceu",
     max_edges: int = 5,

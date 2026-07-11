@@ -114,9 +114,9 @@ def main() -> None:
     rt_seq = ceu["runtime_ms"].tolist()
     mono_rt = all(a >= b for a, b in zip(rt_seq, rt_seq[1:]))
     print(f"(T-a) #HUS by minUtil (ceu): {hus_seq}  -> "
-          f"{'MONOTONE DECREASING ✅' if mono_hus else 'NOT MONOTONE ❌'}")
+          f"{'MONOTONE DECREASING' if mono_hus else 'NOT MONOTONE'}")
     print(f"      runtime by minUtil: {rt_seq}  -> "
-          f"{'decreasing ✅' if mono_rt else 'not decreasing ⚠️'}")
+          f"{'decreasing' if mono_rt else 'not decreasing (review)'}")
 
     tight_ok = True
     print("(T-b) bound tightness candidates(CEU)<=EU<=IVU at each minUtil:")
@@ -125,10 +125,10 @@ def main() -> None:
         ok = s["ceu"] <= s["eu"] <= s["ivu"]
         tight_ok &= ok
         print(f"      minUtil={mu:5d}: IVU={s['ivu']:6d} >= EU={s['eu']:6d} "
-              f">= CEU={s['ceu']:6d}  {'✅' if ok else '❌'}")
+              f">= CEU={s['ceu']:6d}  {'ok' if ok else 'FAIL'}")
 
     ok_all = mono_hus and tight_ok
-    print(f"\nCONCLUSION: {'✅ The STATIC baseline reproduces the original HUSM trends — NOT a strawman.' if ok_all else '❌ Some trend does not match — review.'}")
+    print(f"\nCONCLUSION: {'The STATIC baseline reproduces the original HUSM trends — NOT a strawman.' if ok_all else 'Some trend does not match — review.'}")
     print(f"CSV: {out}")
     sys.exit(0 if ok_all else 1)
 

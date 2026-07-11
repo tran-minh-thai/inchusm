@@ -19,7 +19,8 @@ Cost: ~55 s/round -> --runs 5 is only about 5 min.
 Run:
     "%USERPROFILE%\\.venvs\\inchusm\\Scripts\\python.exe" experiments\\scripts\\e2_ablation_repeat_std.py --runs 5
 
-Send the "REPEATED ABLATION RESULTS" block at the end back to the editor.
+The "REPEATED ABLATION RESULTS" block at the end reports the inc-time mean ± std per bound
+and whether the CEU ≤ EU ≤ IVU order held.
 """
 from __future__ import annotations
 
@@ -74,7 +75,7 @@ def main() -> None:
         if this[0] <= this[1] <= this[2]:
             order_ok += 1
         else:
-            print(f"    ⚠ round {k}: ORDER NOT HELD (ceu={this[0]:.1f} eu={this[1]:.1f} "
+            print(f"    [warn] round {k}: ORDER NOT HELD (ceu={this[0]:.1f} eu={this[1]:.1f} "
                   f"ivu={this[2]:.1f})", flush=True)
     tmp.unlink(missing_ok=True)
 
@@ -85,10 +86,10 @@ def main() -> None:
         print(f"{b.upper():>5} | {fmt(inc[b]):>20} | {hs if len(hs) > 1 else hs[0]}")
     all_high = set().union(*high.values())
     print(f"\nOrder CEU <= EU <= IVU held in {order_ok}/{args.runs} rounds"
-          + ("  ✅" if order_ok == args.runs else "  ⚠ review"))
+          + ("  [ok]" if order_ok == args.runs else "  [review]"))
     print(f"Bounds equivalent (all bounds share #patterns): "
-          + (f"✅ all = {all_high.pop()}" if len(all_high) == 1
-             else f"❌ differ {sorted(all_high)}"))
+          + (f"all = {all_high.pop()}" if len(all_high) == 1
+             else f"differ {sorted(all_high)}"))
     print("Paste this table into the Paper 2 ablation if you want to replace the single-run numbers with mean ± std.")
 
 

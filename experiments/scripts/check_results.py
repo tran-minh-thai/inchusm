@@ -41,17 +41,17 @@ def check_stream(name: str, exp_rows: int | None, exp_high: int | None):
     if exp_rows is not None:
         good = n == exp_rows
         ok &= good
-        msgs.append(f"{n}/{exp_rows} snapshot" + ("" if good else " ✗"))
+        msgs.append(f"{n}/{exp_rows} snapshot" + ("" if good else " FAIL"))
     # match is only meaningful under compare-static (column has value OK/…)
     has_match = any(x.get("match") for x in r)
     if has_match:
         good = n_ok == n
         ok &= good
-        msgs.append(f"match={n_ok}/{n} OK" + ("" if good else " ✗"))
+        msgs.append(f"match={n_ok}/{n} OK" + ("" if good else " FAIL"))
     if exp_high is not None:
         good = last_high == exp_high
         ok &= good
-        msgs.append(f"high last={last_high} (need {exp_high})" + ("" if good else " ✗"))
+        msgs.append(f"high last={last_high} (need {exp_high})" + ("" if good else " FAIL"))
     return name, ok, ", ".join(msgs)
 
 
@@ -70,7 +70,7 @@ def check_citeseer():
         got = by_mu.get(mu)
         good = got == {exp}           # identical across the 3 bounds AND correct value
         ok &= good
-        msgs.append(f"θ{mu}:{sorted(got) if got else '—'}→{exp}" + ("" if good else "✗"))
+        msgs.append(f"θ{mu}:{sorted(got) if got else '—'}→{exp}" + ("" if good else " FAIL"))
     # candidates: CEU ≤ EU ≤ IVU at every min_util
     cand = {}
     for x in r:
@@ -78,7 +78,7 @@ def check_citeseer():
     mono = all(cand.get((mu, "ceu"), 0) <= cand.get((mu, "eu"), 0) <= cand.get((mu, "ivu"), 0)
                for mu in expected)
     ok &= mono
-    msgs.append("CEU≤EU≤IVU" + ("" if mono else " ✗"))
+    msgs.append("CEU≤EU≤IVU" + ("" if mono else " FAIL"))
     return name, ok, " ".join(msgs)
 
 
@@ -100,7 +100,7 @@ def main() -> None:
         n_pass += ok
     print("=" * 60)
     print(f"{n_pass}/{len(checks)} checks PASS"
-          + (" — ALL MATCH ✅" if n_pass == len(checks) else " — MISMATCH, see ✗ above"))
+          + (" - ALL MATCH" if n_pass == len(checks) else " — MISMATCH, see FAIL above"))
     sys.exit(0 if n_pass == len(checks) else 1)
 
 
