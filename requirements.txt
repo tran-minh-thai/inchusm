@@ -1,0 +1,6 @@
+numpy
+pandas
+scikit-learn        # imported as sklearn — label buckets, Citeseer utilities
+scipy
+matplotlib          # figures
+networkx            # graph utilities for the synthetic / Citeseer streams
