@@ -141,7 +141,8 @@ class Run:
                 "cells": {},
             }
         self.manifest.setdefault("sessions", []).append(
-            {"argv": sys.argv, "started_utc": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+            {"argv": [rel(Path(a)) if Path(a).is_absolute() else a for a in sys.argv],
+             "started_utc": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
              "tree": tree, "java.runtime.version": java_runtime(args.java)["java.runtime.version"]})
         self._save()
         print(f"[run] {scenario} -> {rel(self.dir)}  (commit {commit[:7]}, tree {tree})", flush=True)
