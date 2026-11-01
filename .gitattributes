@@ -1,0 +1,2 @@
+# measured result sets keep the bytes written on the measurement machine (CRLF on Windows)
+experiments/measured/** -text

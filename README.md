@@ -18,20 +18,28 @@ processes each (pattern, snapshot) pair once over the whole stream.
 
 ```
 inchusm/
-├── inchusm-miner/          # Java (Maven): static HUSM + IncHUSM, 12 tests
+├── inchusm-miner/          # Java (Maven): static HUSM + IncHUSM, 15 tests
 ├── experiments/
 │   ├── src/inchusm/        # Python: miner bridge + AMLworld loader
-│   ├── scripts/            # E2 (Elliptic), E2b (Citeseer), E2c (synthetic), E2d (AMLworld)
-│   └── results/            # output CSVs (not committed)
+│   ├── scripts/            # E2 (Elliptic), E2b (Citeseer), E2c (synthetic), E2d (AMLworld),
+│   │                       #   alternative strategies, scalability, discretization
+│   ├── streams_sha256.txt  # checksums of the input streams of the last three
+│   ├── measured/           # measured result sets with their manifests (committed)
+│   └── results/            # output CSVs of new runs (not committed)
 ├── datasets/               # Elliptic, AMLworld, Citeseer — NOT committed
 ├── docs/reproduce/paper2.md
 └── requirements.txt
 ```
 
+## Requirements
+
+Java 17 or newer (the measured results in `experiments/measured/` were produced with
+OpenJDK 21), Maven to build the jar, Python 3.12+ with `requirements.txt`.
+
 ## Build the miner
 
 ```bash
-mvn -f inchusm-miner/pom.xml package    # runs 12 tests, produces target/inchusm-miner-*.jar
+mvn -f inchusm-miner/pom.xml package    # runs 15 tests, produces target/inchusm-miner-*.jar
 ```
 
 The Python scripts invoke this jar through `experiments/src/inchusm/miner_bridge.py`.
@@ -57,6 +65,16 @@ python scripts/e2b_citeseer_trend.py      # static-baseline faithfulness check
 python scripts/e2c_synthetic_stream.py --tag S   # controlled synthetic stream
 python scripts/e2d_amlworld_stream.py     # AMLworld daily stream
 python scripts/check_results.py           # verify the deterministic values (any machine)
+```
+
+Alternative strategies, scalability and discretization (details in
+[experiments/README.md](experiments/README.md#alternative-strategies-scalability-and-discretization)):
+
+```bash
+python experiments/scripts/stream_inputs.py      # build the 10 input streams, verify checksums
+python experiments/scripts/alt_strategies.py     # IncHUSM vs snapshot-local vs support filter
+python experiments/scripts/scalability.py        # synthetic stream, n = 1,500 .. 48,000
+python experiments/scripts/discretization.py     # AMLworld k = 2, 4, 8 with static re-run
 ```
 
 `check_results.py` grades 8 result CSVs (main E2, the EU/IVU and support ablations, E2c

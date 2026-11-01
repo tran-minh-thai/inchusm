@@ -58,7 +58,7 @@ Total for the required part: Elliptic ~1.5 GB + AMLworld Small ~9 GB + Citeseer 
    (`requirements.txt` at the root of `inchusm/`: numpy/pandas/matplotlib.
    Missing `matplotlib` → the figure step fails.)
 3. **Maven** — required after a fresh clone, because the jar is not tracked in git. Build it and
-   run the 12 tests with:
+   run the 15 tests with:
    ```bat
    mvn -f inchusm-miner\pom.xml package
    ```

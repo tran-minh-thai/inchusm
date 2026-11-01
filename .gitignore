@@ -1,5 +1,5 @@
 # datasets & external tools (download per docs/reproduce/paper2.md)
-datasets/
+/datasets
 tools/
 
 # experiment outputs (working copies; not committed)
