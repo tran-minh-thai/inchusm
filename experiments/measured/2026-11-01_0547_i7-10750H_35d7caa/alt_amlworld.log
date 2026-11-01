@@ -1,0 +1,13 @@
+stream: 10 snapshots | theta=2000.0 u_max=4.0 sigma=500.0 maxEdges=5
+t= 1 INC high=14 tracked=34 11511ms | B1 found=14 recall=1.000 10788ms | B2 tracked=34 10838ms [OK]
+t= 2 INC high=15 tracked=40 7465ms | B1 found=14 recall=0.933 6842ms | B2 tracked=42 7534ms [OK]
+t= 3 INC high=15 tracked=43 1447ms | B1 found=14 recall=0.933 771ms | B2 tracked=45 1529ms [OK]
+t= 4 INC high=15 tracked=51 1348ms | B1 found=14 recall=0.933 750ms | B2 tracked=53 1527ms [OK]
+t= 5 INC high=15 tracked=52 3434ms | B1 found=14 recall=0.933 2875ms | B2 tracked=54 3667ms [OK]
+t= 6 INC high=15 tracked=55 3976ms | B1 found=14 recall=0.933 2909ms | B2 tracked=55 3975ms [OK]
+t= 7 INC high=15 tracked=55 4092ms | B1 found=14 recall=0.933 2877ms | B2 tracked=58 4183ms [OK]
+t= 8 INC high=15 tracked=55 4173ms | B1 found=14 recall=0.933 2897ms | B2 tracked=58 4194ms [OK]
+t= 9 INC high=17 tracked=58 6579ms | B1 found=14 recall=0.824 5082ms | B2 tracked=61 6613ms [OK]
+t=10 INC high=17 tracked=58 2105ms | B1 found=14 recall=0.824 755ms | B2 tracked=61 2068ms [OK]
+MEM retainedHeapAfterGC=296MB 
+TOTAL inc=46130ms b1=36546ms b2=46128ms segTotal inc=1525 b2=1611

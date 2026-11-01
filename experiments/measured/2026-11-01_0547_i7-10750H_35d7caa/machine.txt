@@ -1,0 +1,7 @@
+openjdk version "21.0.12.1" 2026-08-18 LTS
+OpenJDK Runtime Environment Microsoft-14941484 (build 21.0.12.1+1-LTS)
+OpenJDK 64-Bit Server VM Microsoft-14941484 (build 21.0.12.1+1-LTS, mixed mode, sharing)
+Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+63.751651763916
+started Sun 11/01/2026  5:47:08.14 
+finished Sun 11/01/2026  7:20:01.46 

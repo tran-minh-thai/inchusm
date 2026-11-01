@@ -1,0 +1,13 @@
+stream: 10 snapshots | measure=UTILITY minValue=1200.0 MER=1 bound=CEU maxEdges=5
+t= 1 n=272456 e=117739 tracked=8      high=4     (+4) seg=10     inc=11020ms static=10420ms [OK]
+t= 2 n=156634 e=131076 tracked=10     high=4     (+0) seg=12     inc=6583ms static=33444ms [OK]
+t= 3 n=48417  e=28749  tracked=10     high=4     (+0) seg=10     inc=715ms static=43209ms [OK]
+t= 4 n=48364  e=28818  tracked=10     high=4     (+0) seg=10     inc=702ms static=53785ms [OK]
+t= 5 n=100073 e=71826  tracked=10     high=4     (+0) seg=10     inc=2763ms static=78746ms [OK]
+t= 6 n=100138 e=71954  tracked=11     high=4     (+0) seg=15     inc=2793ms static=111234ms [OK]
+t= 7 n=99961  e=71818  tracked=11     high=5     (+1) seg=11     inc=2711ms static=148366ms [OK]
+t= 8 n=100079 e=71983  tracked=11     high=5     (+0) seg=11     inc=2715ms static=188829ms [OK]
+t= 9 n=134738 e=103812 tracked=11     high=5     (+0) seg=11     inc=4830ms static=259350ms [OK]
+t=10 n=48545  e=28927  tracked=11     high=5     (+0) seg=10     inc=1060ms static=284849ms [OK]
+TOTAL incremental=35892ms | high patterns=5
+TOTAL static-rerun=1212232ms | speedup=33.77x
